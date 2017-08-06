@@ -19,14 +19,14 @@ export default class SplashScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showComponent: false,
+      showComponentSplash: true,
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     this.setState({
-          showComponent: true,
+          showComponentSplash: false,
         });
 
   }
@@ -37,10 +37,10 @@ export default class SplashScreen extends Component {
     );
 
     let show = () => (
-      this.state.showComponent ? <Login/> : null
+      this.state.showComponentSplash ? splash() : <Login/>
     );
 
-    return (
+    let splash = () => (
       <View style={styles.wrapper}>
 
         <Text style={styles.title}>
@@ -52,7 +52,9 @@ export default class SplashScreen extends Component {
             style={styles.buttonContainer}
             onPress={this.handleClick}
             >
-            {show}
+              {
+                this.state.showComponentSplash ? null : <Login/>
+              }
           <Text style={styles.buttonText}
             >LOGIN</Text>
           </TouchableOpacity>
@@ -63,6 +65,10 @@ export default class SplashScreen extends Component {
         Powered by React native
         </Text>
       </View>
+    );
+
+    return (
+      show()
     );
   }
 }

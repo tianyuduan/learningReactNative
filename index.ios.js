@@ -17,9 +17,26 @@ import Splash from './components/splashscreen.js';
 
 
 export default class myapp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showComponent: false,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({
+          showComponent: true,
+        });
+
+  }
   render() {
+
     return (
-      <Splash/>
+
+    <Splash/>
+
     );
   }
 }

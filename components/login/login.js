@@ -4,8 +4,27 @@ import {AppRegistry, Text, View, StyleSheet, Image,
 import Loginform from './loginform.js';
 
 export default class Login extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      showComponentLogin: false,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({
+          showComponentLogin: true,
+        });
+
+  }
 
   render(){
+
+    const toggle = () => (
+      <View></View>
+
+    );
     return (
       <KeyboardAvoidingView
       behavior='padding'
